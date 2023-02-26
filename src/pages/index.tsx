@@ -87,6 +87,7 @@ export default function Home() {
     <Container maxW="container.xl">
       <Head>
         <title>{title}</title>
+        <meta name="description" content={description} />
       </Head>
       <VStack spacing="1em" alignItems="flex-start">
         <Heading as="h1" fontWeight="bold" fontSize='4xl' color={textColor}>{title}</Heading>

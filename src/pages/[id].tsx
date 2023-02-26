@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import {useRouter} from "next/router";
+import { Fragment } from "react";
 import { useQuery } from "react-query";
 
 const ProcessDetail = () => {
@@ -45,6 +46,7 @@ const ProcessDetail = () => {
     <Container maxW="container.xl">
       <Head>
         <title>{id}</title>
+        <meta name="description" content="description" />
       </Head>
       <HStack>
         <IconButton variant="ghost" aria-label="Back" icon={<ArrowBackIcon color={headerColor} h={8} w={8} />} onClick={() => router.back()} />
@@ -130,7 +132,7 @@ const ProcessDetail = () => {
                       <Grid templateColumns={'repeat(12, 1fr)'} gap={gridGap}>
                         {
                         action.history.map((history, index) => (
-                          <>
+                          <Fragment key={history.id}>
                             <GridItem colSpan={[12,12,2]}>
                               <VStack alignItems="flex-start">
                                 <Text>{history.date}</Text>
@@ -162,7 +164,7 @@ const ProcessDetail = () => {
                                 <Text textAlign="justify">{history.content}</Text>
                               </Card>
                             </GridItem>
-                          </>
+                          </Fragment>
                         ))
                         }
                       </Grid>

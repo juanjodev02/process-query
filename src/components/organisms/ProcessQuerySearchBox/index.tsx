@@ -23,6 +23,7 @@ const ProcessQuerySearchBox: FC<ProcessQuerySearchBoxProps> = ({ onSearchSubmit,
                 isLoading={isLoading}
               />,
             label: intl.formatMessage({ id: "page.home.processQuerySearchBox.identityNumber.label" }),
+            id: 'identityNumber-tab'
           },
           {
             component: <NameSearch
@@ -32,7 +33,8 @@ const ProcessQuerySearchBox: FC<ProcessQuerySearchBoxProps> = ({ onSearchSubmit,
               onSubmit={(data) => onSearchSubmit('names', data)}
               isLoading={isLoading}
             />,
-            label: intl.formatMessage({ id: "page.home.processQuerySearchBox.names.label" })
+            label: intl.formatMessage({ id: "page.home.processQuerySearchBox.names.label" }),
+            id: 'names-tab'
           },
           {
             component: <ProcessNumberSearch
@@ -49,7 +51,8 @@ const ProcessQuerySearchBox: FC<ProcessQuerySearchBoxProps> = ({ onSearchSubmit,
               onSubmit={(data) => onSearchSubmit('processNumber', data)}
               isLoading={isLoading}
             />,
-            label: intl.formatMessage({ id: "page.home.processQuerySearchBox.processNumber.label" })
+            label: intl.formatMessage({ id: "page.home.processQuerySearchBox.processNumber.label" }),
+            id: 'processNumber-tab'
           }
         ]}
         disabled={isLoading}

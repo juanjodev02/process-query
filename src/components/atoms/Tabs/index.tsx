@@ -14,6 +14,7 @@ type TabsProps = {
   data: {
     label: string
     component: ReactNode
+    id: string
   }[],
   disabled?: boolean
 }
@@ -45,12 +46,14 @@ const Tab = forwardRef<any, any>((props, ref) => {
             transform: 'translateY(-1px)',
           }}
           {...tabProps}
+          aria-controls={tabProps['aria-controls']}
           color={color}
           bg={bg}
           borderStyle={'solid'}
           borderColor={borderColor}
           borderWidth={borderWidth}
-          borderRadius={borderRadius}>
+          borderRadius={borderRadius}
+          >
         {tabProps.children}
       </Button>
   )
@@ -80,12 +83,12 @@ const Tabs: FC<TabsProps> = (props) => {
       <ChakraUiTabs variant='unstyled' index={tabIndex} onChange={handleTabsChange}>
         <TabList>
           {props.data.map((tab) => (
-              <Tab isDisabled={props.disabled} key={tab.label}>{tab.label}</Tab>
+              <Tab isDisabled={props.disabled} key={tab.id}>{tab.label}</Tab>
           ))}
         </TabList>
         <TabPanels borderWidth={1}>
           {props.data.map((tab) => (
-              <TabPanel minH="10rem" p={4} key={tab.label} alignItems="center" display="flex">
+              <TabPanel minH="10rem" p={4} key={tab.id} alignItems="center" display="flex">
                 {tab.component}
               </TabPanel>
           ))}

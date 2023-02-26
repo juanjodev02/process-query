@@ -53,8 +53,19 @@ const IdentityNumberSearch: FC<IdentityNumberSearchProps> = (
   }, [type, setValue, router.query.identityNumber]);
 
   return (
-    <HStack w="100%" alignItems="flex-end" justifyContent="center">
-     <Box as="form" id="identity-number-search-form" onSubmit={handleSubmit(onSubmit)} w="100%">
+    <HStack
+      w="100%"
+      alignItems={['center', 'center', 'flex-end']}
+      justifyContent="center"
+      flexDir={['column', 'column', 'row']}
+      gap={['20px', '20px', '0px']}
+    >
+     <Box
+      as="form"
+      id="identity-number-search-form"
+      onSubmit={handleSubmit(onSubmit)}
+      w="100%"
+      >
        <FormControl isRequired isInvalid={!!errors.identityNumber}>
         <FormLabel display="flex" gap="2px" requiredIndicator={<Text color="#A5221D">*</Text>}>
           {identityNumberPlaceholder}

@@ -91,8 +91,8 @@ const QueryResult: FC<QueryResultProps> = ({
         <Text as="h2" fontWeight="bold" fontSize='3xl' color={textColor}>{resultTitle}</Text>
         <Text fontSize='md' color={captionColor}>{data?.length} {resultLengthLabel}</Text>
       </HStack>
-      <HStack w="100%" spacing="50px" alignItems="flex-start">
-        <Card padding={5} w="300px" h="100%">
+      <HStack w="100%" spacing={[0,0,"50px"]} alignItems="flex-start">
+        <Card padding={5} w="300px" h="100%" display={['none', 'none', 'flex']}>
           <Heading as="h3" color={textColor} size='md'>{filterTitle}</Heading>
           <VStack>
             <FormControl>

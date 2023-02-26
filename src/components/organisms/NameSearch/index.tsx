@@ -43,7 +43,13 @@ const NameSearch: FC<NameSearchProps> = ({
   }, [type, setValue, router.query.fullName]);
 
   return (
-      <HStack w="100%" alignItems="flex-end" justifyContent="center">
+      <HStack
+        w="100%"
+        alignItems={['center', 'center', 'flex-end']}
+        justifyContent="center"
+        flexDir={['column', 'column', 'row']}
+        gap={['20px', '20px', '0px']}
+      >
         <Box as="form" id="name-search-form" onSubmit={handleSubmit(onSubmit)} w="100%">
           <FormControl isRequired isInvalid={!!errors.fullName}>
             <FormLabel display="flex" gap="2px" requiredIndicator={<Text color="#A5221D">*</Text>}>

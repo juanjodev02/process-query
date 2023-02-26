@@ -29,8 +29,20 @@ const ProcessNumberSearch: FC<ProcessNumberSearchProps> = (props) => {
   }, [type, setValue, router.query]);
 
   return (
-      <HStack w="100%">
-        <HStack onSubmit={handleSubmit(props.onSubmit)} id="process-number-form" as="form" w="100%" alignItems="flex-start" justifyContent="center">
+      <HStack
+        w="100%"
+        flexDir={['column', 'column', 'row']}
+        gap={['20px', '20px', '40px']}
+      >
+        <HStack
+          onSubmit={handleSubmit(props.onSubmit)}
+          id="process-number-form"
+          as="form"
+          w="100%"
+          alignItems={['flex-start', 'flex-start', 'flex-end']}
+          justifyContent={['flex-start', 'flex-start', 'flex-end']}
+          flexDir={['column', 'column', 'row']}
+        >
           <FormControl isRequired isInvalid={!!errors.dependencyCode}>
           <FormLabel display="flex" gap="2px" requiredIndicator={<Text color="#A5221D">*</Text>}>{props.dependencyCodeLabel}</FormLabel>
             <Input disabled={props.isLoading} placeholder={props.dependencyCodePlaceholder} {...register("dependencyCode")}/>
